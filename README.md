@@ -13,7 +13,7 @@ Other parameters related to Ricci flow, surgery with modularity etc., can be fou
 $$d(x)= \text{exp}(\frac{-x^2}{\sigma})$$
 
 * Probability Distribution Centered on Some Node [[3]](#3):
-<img src="/images/prob_dist.png" alt="" style="height: 100px; width:100px;"/>
+<img src="/images/prob_dist.png" alt="" style=""/>
 
 
 
