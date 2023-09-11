@@ -39,36 +39,32 @@ If successful, the script should produce the plots below.
 
 <table>
 <tr>
-<th> Good </th>
-<th> Bad </th>
+<th> Original NOAA Graph </th>
+<th> Original NOAA Graph with Distance Info </th>
 </tr>
 <tr>
 <td>
 
-```c++
-int foo() {
-    int result = 4;
-    return result;
-}
-```
-
+Plot showing original graph before partitioning.
+<img src="/images/orig_noaa_graph.png" alt="" style=""/>
 </td>
 <td>
 
-```c++
-int foo() { 
-    int x = 4;
-    return x;
-}
-```
+Plot showing original NOAA graph, whose edge colors correspond to transformed covariance values.
+<img src="/images/orig_noaa_graph_distance.png" alt="" style=""/>
 
 </td>
 </tr>
+<tr>
+<th> Original NOAA Graph with Covarince Info </th>
+<th> Bad </th>
+</tr>
+
 </table>
 
 
-* Original Graph: Plot showing original graph before partitioning.
-<img src="/images/orig_noaa_graph.png" alt="" style=""/>
+<!-- * Original Graph: Plot showing original graph before partitioning.
+<img src="/images/orig_noaa_graph.png" alt="" style=""/> -->
 
 ## References
 <a id="1">[1]</a> 
