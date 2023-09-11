@@ -7,32 +7,34 @@ To produce the results, execute the script via "main.m", which subsequently trig
 
 While the provided script demonstrates graph partitioning based on covariance using a specific dataset(NOAA), it can also be applied to other datasets using the same partitioning method. If you introduce appropriate data to the "data/input" directory, formatted similarly to "data/input/noaaGraph.mat"—a .mat file that contains the process covariance (Cx), the process itself named "noaaTemperature", the weight matrix (W), diagonal degree matrix (D), and Laplacian matrix (LG)—the script will generate results consistent with Algorithm 2 from [[1]](#1). Please note: the 'coord_data' is used exclusively for visualization purposes in MATLAB.
 
-Other parameters related to Ricci flow, surgery with modularity etc., can be found in "main.m", if it is necessary to change the parameters. Before proceeding let us introduce equations for partitioning the graph that we change their hyperparameters via the script in MATLAB:
+## Parameter Details for Ricci Flow & Modularity
+Before diving into the main results, it's essential to understand the parameters that drive the Ricci flow, surgery with modularity, and other related algorithms. All parameters can be adjusted within the "main.m" script. Here are the main equations used for partitioning, along with an explanation of their hyperparameters:
 
 1. Gaussian Function:
 $$d(x)= \text{exp}\left(\frac{-x^2}{\sigma}\right)$$
 
+> sigma: Variance parameter for the Gaussian. Adjust this parameter until the transformation of edge covariances results in a clear bell-shaped curve. Denoted as $\sigma$.
+
 2. Probability Distribution Centered on Some Node [[3]](#3):
 <img src="/images/prob_dist.png" alt="" style=""/>
+
+
+>alpha: Determines the emphasis on the probability measure of each node, centered on that specific node. A smaller alpha places more emphasis on neighboring nodes. Denoted as $\alpha$.
+
+> exp_power: Refers to the distance power used for exponentiation. Denoted as $p$.
 
 3. Modularity:
 For modularity partitioning algorithm used in surgery, please refer to the link in [[4]](#4).
 
-> sigma: Variance parameter for the Gaussian. This parameter should be adjusted such that at least the bell shape is observed when edge covariances are transformed for better separation. $\sigma$ in 1. Gaussian Function.
-
->alpha: Parameter denoting how much the probability measure on each node centered on that certain node. Less alpha value creates more emphasis on neighboring nodes. $\alpha$ in 2. Probability Distribution Centered on Some Node.
-
-> exp_power: Distance power for exponentiation. $p$ in 2. Probability Distribution Centered on Some Node.
-
-> num_iter: Number of iterations on the flow process updating transformed covariance weights. Details can be found in [[3]](#3).
-
 > resolution: resolution in networkx.greedy_modularity_communities(). (Description acquired from [[4]](#4)) If resolution is less than 1, modularity favors larger communities. Greater than 1 favors smaller communities.
 
-> best_n: best_n in networkx.greedy_modularity_communities(). In all the experiments, it is chosen as number of partitions desired. (Description acquired from [[4]](#4)) A maximum number of communities above which the merging process will not stop. This forces community merging to continue after modularity starts to decrease until best_n communities remain. If None, don’t force it to continue beyond a maximum.
-
-NOTE: In order not to restrict the greedy_modularity_communities() too much, we did not set cutoff input. Its default value is 1.
+> best_n: best_n in networkx.greedy_modularity_communities(). In all the experiments, it is chosen as number of partitions desired. K = 7 in this case. (Description acquired from [[4]](#4)) A maximum number of communities above which the merging process will not stop. This forces community merging to continue after modularity starts to decrease until best_n communities remain. If None, don’t force it to continue beyond a maximum.
 
 > cutoff: (Description acquired from [[4]](#4)) A minimum number of communities below which the merging process stops. The process stops at this number of communities even if modularity is not maximized. The goal is to let the user stop the process early. The process stops before the cutoff if it finds a maximum of modularity.
+
+Note: To ensure the greedy_modularity_communities() function isn't overly restrictive, the cutoff input is left at its default value of 1.
+
+> num_iter: Number of iterations on the flow process updating transformed covariance weights. Details can be found in [[3]](#3).
 
 ## Results
 If successful, the script should produce the plots below.
@@ -45,15 +47,15 @@ If successful, the script should produce the plots below.
 <tr>
 <td width="50%">
 
-*Plot showing original graph before partitioning.
 
 <img src="/images/orig_noaa_graph.png" alt="" style=""/>
+<i>Plot displaying the initial graph prior to partitioning.</i>
+
 </td>
 <td width="50%">
 
-*Plot showing original NOAA graph, whose edge colors correspond to transformed covariance values. Notice how the values are clearly separated as a result of transformation.
-
 <img src="/images/orig_noaa_graph_distance.png" alt="" style=""/>
+<i>Plot displaying the initial graph, whose edge colors correspond to transformed covariance values. Notice how the values are clearly separated as a result of transformation.</i>
 
 </td>
 </tr>
@@ -64,16 +66,14 @@ If successful, the script should produce the plots below.
 <tr>
 <td width="50%">
 
-*Plot showing original NOAA graph, whose edge colors correspond to covariance values.
-
 <img src="/images/orig_noaa_graph_covariance.png" alt="" style=""/>
+ <i>This plot showcases the original NOAA graph with edges colored according to covariance values.</i>
+
 </td>
 <td width="50%">
 
-*Plot showing original NOAA graph, whose edge colors correspond to transformed covariance values after Ricci Flow applied. Partitions are clearly visible through this plot.
-
 <img src="/images/orig_noaa_graph_ricci_distance.png" alt="" style=""/>
-
+  <i>A visualization of the NOAA graph post-Ricci Flow application. Edge colors correspond to transformed covariance values, making partitions evident.</i>
 </td>
 </tr>
 
@@ -84,15 +84,17 @@ If successful, the script should produce the plots below.
 <tr>
 <td width="50%">
 
-*Plot showing original NOAA graph, whose edge colors correspond to negative log transformed covariance values after Ricci Flow applied. Edges with lower covariance values are more likely to be cut.
-
 <img src="/images/orig_noaa_graph_ricci_covariance.png" alt="" style=""/>
+
+<i>Displays the NOAA graph with edges colored based on negative log-transformed covariance values post-Ricci Flow. Edges with diminished covariance values are more likely to be cut.</i>
+
 </td>
 <td width="50%">
 
-*Plot showing partitions generated by the algorithm. This partitioning may be seen in accordance with the climate regions of the US only with the temperature data. See [[5]](#5). West has very diverse climate, nevertheless, the algorithm returns a plausible partitioning. 
 
 <img src="/images/partitions.png" alt="" style=""/>
+  <i>Illustrates the partitions as output by the algorithm. This division aligns with the US's climatic regions solely based on temperature data. Despite the West's diverse climate, the algorithm offers a plausible partitioning. See: [[5]](#5).</i>
+
 
 </td>
 </tr>
@@ -101,8 +103,7 @@ If successful, the script should produce the plots below.
 </table>
 
 
-<!-- * Original Graph: Plot showing original graph before partitioning.
-<img src="/images/orig_noaa_graph.png" alt="" style=""/> -->
+This README.md has been created with the help of [ChatGPT](chat.openai.com).
 
 ## References
 <a id="1">[1]</a> 
