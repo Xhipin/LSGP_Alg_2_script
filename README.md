@@ -42,8 +42,7 @@ If successful, the script should produce the plots below.
   Some text.
   </div>
   <div class="col-md-4" markdown="1">
-  <!-- ![Alt Text](../img/folder/blah.jpg) -->
-  <img height="600px" class="center-block" src="../img/folder/blah.jpg">
+    Some other texts
   </div>
 </div>
 
