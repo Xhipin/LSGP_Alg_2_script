@@ -7,19 +7,32 @@ To produce the results, execute the script via "main.m", which subsequently trig
 
 While the provided script demonstrates graph partitioning based on covariance using a specific dataset(NOAA), it can also be applied to other datasets using the same partitioning method. If you introduce appropriate data to the "data/input" directory, formatted similarly to "data/input/noaaGraph.mat"—a .mat file that contains the process covariance (Cx), the process itself named "noaaTemperature", the weight matrix (W), diagonal degree matrix (D), and Laplacian matrix (LG)—the script will generate results consistent with Algorithm 2 from [[1]](#1). Please note: the 'coord_data' is used exclusively for visualization purposes in MATLAB.
 
-Other parameters related to Ricci flow, surgery with modularity etc., can be found in "main.m", if it is necessary to change the parameters. Before proceeding let us introduce which equations the parameters correspond to three subequations or submodules:
+Other parameters related to Ricci flow, surgery with modularity etc., can be found in "main.m", if it is necessary to change the parameters. Before proceeding let us introduce equations for partitioning the graph that we change their hyperparameters via the script in MATLAB:
 
-* Gaussian Function:
-$$d(x)= \text{exp}(\frac{-x^2}{\sigma})$$
+1. Gaussian Function:
+$$d(x)= \text{exp}\left(\frac{-x^2}{\sigma}\right)$$
 
-* Probability Distribution Centered on Some Node [[3]](#3):
+2. Probability Distribution Centered on Some Node [[3]](#3):
 <img src="/images/prob_dist.png" alt="" style=""/>
 
+3. Modularity:
+For modularity partitioning algorithm used in surgery, please refer to the link in [[4]](#4).
 
+> sigma: Variance parameter for the Gaussian. This parameter should be adjusted such that at least the bell shape is observed when edge covariances are transformed for better separation. $\sigma$ in 1. Gaussian Function.
 
-> sigma: Variance parameter for the Gaussian. This parameter should be adjusted such that at least the bell shape is observed when edge covariances are transformed for better separation. 
-> alpha: Parameter denoting how the measure on each node centered on that certain node.
-> exp_power: Distance power for exponentiation.
+>alpha: Parameter denoting how much the probability measure on each node centered on that certain node. Less alpha value creates more emphasis on neighboring nodes. $\alpha$ in 2. Probability Distribution Centered on Some Node.
+
+> exp_power: Distance power for exponentiation. $p$ in 2. Probability Distribution Centered on Some Node.
+
+> num_iter: Number of iterations on the flow process updating transformed covariance weights. Details can be found in [[3]](#3).
+
+> resolution: resolution in networkx.greedy_modularity_communities(). (Description acquired from [[4]](#4)) If resolution is less than 1, modularity favors larger communities. Greater than 1 favors smaller communities.
+
+> best_n: best_n in networkx.greedy_modularity_communities(). In all the experiments, it is chosen as number of partitions desired. (Description acquired from [[4]](#4)) A maximum number of communities above which the merging process will not stop. This forces community merging to continue after modularity starts to decrease until best_n communities remain. If None, don’t force it to continue beyond a maximum.
+
+NOTE: In order not to restrict the greedy_modularity_communities() too much, we did not set cutoff input. Its default value is 1.
+
+> cutoff: (Description acquired from [[4]](#4)) A minimum number of communities below which the merging process stops. The process stops at this number of communities even if modularity is not maximized. The goal is to let the user stop the process early. The process stops before the cutoff if it finds a maximum of modularity.
 
 ## Results
 If successful, the script should produce the plots below. Notice how 
@@ -39,3 +52,6 @@ vol. 93, no. 11, pp. 1687 – 1697, 2012
 <a id="3">[3]</a> 
 C. C. Ni, Y. Y. Lin, F. Luo, and J. Gao, “Community detection on
 networks with Ricci flow,” Scientific Reports, 2019.
+
+<a id="4">[4]</a>
+[NetworkX greedy_modularity_communities](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.community.modularity_max.greedy_modularity_communities.html)
