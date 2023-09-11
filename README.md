@@ -35,12 +35,14 @@ NOTE: In order not to restrict the greedy_modularity_communities() too much, we 
 > cutoff: (Description acquired from [[4]](#4)) A minimum number of communities below which the merging process stops. The process stops at this number of communities even if modularity is not maximized. The goal is to let the user stop the process early. The process stops before the cutoff if it finds a maximum of modularity.
 
 ## Results
-If successful, the script should produce the plots below. Notice how 
+If successful, the script should produce the plots below.
+
+* Original Graph: Plot showing original graph before partitioning.
+<img src="/images/orig_noaa_graph.png" alt="" style=""/>
 
 ## References
 <a id="1">[1]</a> 
-A. Canbolat and E. Vural,  
-“Locally stationary graph processes,”
+A. Canbolat and E. Vural, “Locally stationary graph processes,”
 arXiv preprint arXiv:2309.01657, 2023.
 
 <a id="2">[2]</a> 

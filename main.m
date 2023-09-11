@@ -99,7 +99,7 @@ for i = 1 : length(c)
 
 end
 
-title('NOAA Clusters');
+title('NOAA Partitions');
 
 
 %% Adjusted Ricci Squared Covariance
