@@ -47,11 +47,11 @@ If successful, the script should produce the plots below.
 
 *Plot showing original graph before partitioning.
 
-<img src="/images/orig_noaa_graph.png" alt="" style="height:300px;"/>
+<img src="/images/orig_noaa_graph.png" alt="" style="height:300px; width:225px;"/>
 </td>
 <td>
 
-*Plot showing original NOAA graph, whose edge colors correspond to transformed covariance values.
+*Plot showing original NOAA graph, whose edge colors correspond to transformed covariance values. Notice how the values are clearly separated.
 
 <img src="/images/orig_noaa_graph_distance.png" alt="" style="height:300px;"/>
 
