@@ -37,7 +37,7 @@ NOTE: In order not to restrict the greedy_modularity_communities() too much, we 
 ## Results
 If successful, the script should produce the plots below.
 
-<table>
+<table style="width:100%">
 <tr>
 <th style="width:50%"> Original NOAA Graph </th>
 <th style="width:50%"> Original NOAA Graph with Distance Info </th>
