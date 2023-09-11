@@ -91,9 +91,11 @@ If successful, the script should produce the plots below.
 </td>
 <td width="50%">
 
-
 <img src="/images/partitions.png" alt="" style=""/>
-  <i>Illustrates the partitions as output by the algorithm. This division aligns with the US's climatic regions solely based on temperature data. Despite the West's diverse climate, the algorithm offers a plausible partitioning. See: [[5]](#5).</i>
+  
+  <i>Illustrates the partitions as output by the algorithm. This division aligns with the US's climatic regions solely based on temperature data. Despite the West's diverse climate, the algorithm offers a plausible partitioning.</i>  
+  
+  See: [[5]](#5).
 
 
 </td>
