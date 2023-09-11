@@ -39,8 +39,8 @@ If successful, the script should produce the plots below.
 
 <table>
 <tr>
-<th> Original NOAA Graph </th>
-<th> Original NOAA Graph with Distance Info </th>
+<th style="width:50%"> Original NOAA Graph </th>
+<th style="width:50%"> Original NOAA Graph with Distance Info </th>
 </tr>
 <tr>
 <td>
