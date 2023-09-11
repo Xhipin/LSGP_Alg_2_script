@@ -47,7 +47,7 @@ If successful, the script should produce the plots below.
 
 *Plot showing original graph before partitioning.
 
-<img src="/images/orig_noaa_graph.png" alt="" style="height:300px; width:225px;"/>
+<img src="/images/orig_noaa_graph.png" alt="" style="height:300px; width:400px;"/>
 </td>
 <td>
 
