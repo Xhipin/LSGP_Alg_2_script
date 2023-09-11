@@ -37,6 +37,17 @@ NOTE: In order not to restrict the greedy_modularity_communities() too much, we 
 ## Results
 If successful, the script should produce the plots below.
 
+<div class="row">
+  <div class="col-md-8" markdown="1">
+  Some text.
+  </div>
+  <div class="col-md-4" markdown="1">
+  <!-- ![Alt Text](../img/folder/blah.jpg) -->
+  <img height="600px" class="center-block" src="../img/folder/blah.jpg">
+  </div>
+</div>
+
+
 * Original Graph: Plot showing original graph before partitioning.
 <img src="/images/orig_noaa_graph.png" alt="" style=""/>
 
