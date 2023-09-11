@@ -78,17 +78,6 @@ for tpl in G_frc.edges():
 G_cut, c = surge.LSP_surgery(G_frc, weight = 'covValue', resolution = float(sys.argv[7]),\
  best_n = int(sys.argv[8]))
 
-#import pdb
-#pdb.set_trace()
-
-# posdic = dict()
-# i = 0
-# for nde in Gnoaa.nodes():
-#     posdic[nde] = coord_data[i,:]
-#     i += 1
-
-# nx.draw(G_cut, pos = posdic)
-# plt.show()
 
 ## Save to MATLAB
 for i in range(len(c)):
