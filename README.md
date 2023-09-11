@@ -37,14 +37,34 @@ NOTE: In order not to restrict the greedy_modularity_communities() too much, we 
 ## Results
 If successful, the script should produce the plots below.
 
-<div class="row">
-  <div class="col-md-8" markdown="1">
-  Some text.
-  </div>
-  <div class="col-md-4" markdown="1">
-    Some other texts
-  </div>
-</div>
+<table>
+<tr>
+<th> Good </th>
+<th> Bad </th>
+</tr>
+<tr>
+<td>
+
+```c++
+int foo() {
+    int result = 4;
+    return result;
+}
+```
+
+</td>
+<td>
+
+```c++
+int foo() { 
+    int x = 4;
+    return x;
+}
+```
+
+</td>
+</tr>
+</table>
 
 
 * Original Graph: Plot showing original graph before partitioning.
