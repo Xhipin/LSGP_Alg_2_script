@@ -37,19 +37,19 @@ NOTE: In order not to restrict the greedy_modularity_communities() too much, we 
 ## Results
 If successful, the script should produce the plots below.
 
-<table style="width:100%">
+<table width="100%">
 <tr>
-<th style="width:50%"> Original NOAA Graph </th>
-<th style="width:50%"> Original NOAA Graph with Distance Info </th>
+<th> Original NOAA Graph </th>
+<th> Original NOAA Graph with Distance Info </th>
 </tr>
 <tr>
-<td>
+<td width="100%">
 
 *Plot showing original graph before partitioning.
 
 <img src="/images/orig_noaa_graph.png" alt="" style="height:300px; width:400px;"/>
 </td>
-<td>
+<td width="100%">
 
 *Plot showing original NOAA graph, whose edge colors correspond to transformed covariance values. Notice how the values are clearly separated.
 
