@@ -105,7 +105,7 @@ If successful, the script should produce the plots below.
 </table>
 
 
-This README.md has been created with the help of [ChatGPT](chat.openai.com).
+This README.md has been created with the help of [ChatGPT](https://chat.openai.com).
 
 ## References
 <a id="1">[1]</a> 
