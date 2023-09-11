@@ -43,17 +43,17 @@ If successful, the script should produce the plots below.
 <th> Original NOAA Graph with Distance Info </th>
 </tr>
 <tr>
-<td width="100%">
+<td width="50%">
 
 *Plot showing original graph before partitioning.
 
-<img src="/images/orig_noaa_graph.png" alt="" style="height:300px; width:400px;"/>
+<img src="/images/orig_noaa_graph.png" alt="" style=""/>
 </td>
-<td width="100%">
+<td width="50%">
 
 *Plot showing original NOAA graph, whose edge colors correspond to transformed covariance values. Notice how the values are clearly separated.
 
-<img src="/images/orig_noaa_graph_distance.png" alt="" style="height:300px;"/>
+<img src="/images/orig_noaa_graph_distance.png" alt="" style=""/>
 
 </td>
 </tr>
